@@ -43,6 +43,68 @@ function validarTipo() {
     return ''; // El tipo es válido
 }
 
+function validarPan(hallulla, marraqueta) {
+    var marNum = parseInt(marraqueta);
+    var halNum = parseInt(hallulla);
+    
+    // Validar si ambas cantidades son números válidos
+    if (isNaN(marNum) && isNaN(halNum)) {
+        return 'Debe ingresar la cantidad de pan.';
+    }
+    
+    // Validar si ninguna cantidad es menor que cero
+    if (marNum < 0 || halNum < 0) {
+        return 'No puede ingresar valores negativos.';
+    }
+
+    // Validar si al menos una cantidad es mayor que cero
+    if (marNum <= 0 && halNum <= 0) {
+        return 'Debe ingresar la cantidad de pan.';
+    }
+
+    
+
+    return ''; // La cantidad de pan es válida
+}
+
+
+
+
+function validarReserva(){
+    var nombre = document.getElementById('nombre').value;
+    var celular = document.getElementById('celular').value;
+    var marNum = document.getElementById('marraqueta').value;
+    var halNum = document.getElementById('hallulla').value;
+
+    var mensajeError = '';
+
+    mensajeError = validarNombre(nombre);
+    if (mensajeError !== '') {
+        alert(mensajeError);
+        return false;
+    }
+
+    mensajeError = validarCelular(celular);
+    if (mensajeError !== '') {
+        alert(mensajeError);
+        return false;
+    }
+
+    mensajeError = validarPan(halNum,marNum);
+    if (mensajeError !== '') {
+        alert(mensajeError);
+        return false;
+    }
+
+    var aviso = "Estimado/a cliente del almacén Daniella,\n" +
+                "su reserva fue ingresada exitosamente.\n" +
+                "Su reserva es de "+marNum+" marraquetas y "+halNum+" hallullas.\n\n" +
+                "Nos comunicaremos con usted al número indicado para confirmar su reserva.\n" +
+                "¡Muchas gracias por preferirnos!\n\n" +
+                "Atentamente, almacén Daniella.";
+    alert(aviso);
+}
+
 function validarFormulario() {
     var nombre = document.getElementById('nombre').value;
     var apellido= document.getElementById('apellido').value;
