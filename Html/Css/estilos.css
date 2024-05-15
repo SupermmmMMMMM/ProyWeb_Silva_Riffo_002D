@@ -11,6 +11,7 @@
     max-width: 800px;
     padding: 20px; /* Agrega un poco de espacio entre el contenido y los bordes del contenedor */
     background-color: rgba(255, 255, 255, 0.8); /* Color de fondo semi-transparente */
+    border-radius: 12px;
 }
 
 
@@ -22,4 +23,8 @@
 /* Estilos para los botones */
 .btn {
     margin-top: 10px;
+}
+
+.thumbnail{
+    padding: 10px;
 }
