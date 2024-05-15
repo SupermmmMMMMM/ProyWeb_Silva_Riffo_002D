@@ -160,3 +160,20 @@ function validarFormulario() {
 
     return true; // Si todas las validaciones pasan, retornar true
 }
+
+// Función para obtener una imagen aleatoria de Unsplash relacionada con un supermercado y establecerla como fondo del cuerpo
+function setBackgroundImage() {
+    fetch('https://api.unsplash.com/photos/random?query=supermarket&client_id=Muo0DxdFOriFaeLk_RX10rENykezs5IhvdzNANHRIv8')
+    .then(response => response.json())
+    .then(data => {
+        const imageUrl = data.urls.regular;
+        document.body.style.backgroundImage = `url('${imageUrl}')`;
+    })
+    .catch(error => console.error('Error al obtener la imagen:', error));
+}
+
+// Llama a setBackgroundImage() al cargar la página y luego cada 10 segundos
+window.onload = function() {
+    setBackgroundImage();
+    setInterval(setBackgroundImage, 10000);
+};
